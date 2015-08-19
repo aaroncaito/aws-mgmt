@@ -1,0 +1,11 @@
+#! /bin/bash
+
+aws --profile $profile 
+
+aws ec2 create-security-group --group-name MySecurityGroup --description "My security group" --vpc-id vpc-1a2b3c4d
+aws ec2 authorize-security-group-ingress --group-id sg-903004f8 --protocol tcp --port 22 --cidr 203.0.113.0/24
+ec2-modify-instance-attribute instance_id { --block-device-mapping mapping | --disable-api-termination | --ebs-optimized Boolean | --group-id group_id [...] | --instance-initiated-shutdown-behavior behavior | --instance-type type | --kernel kernel_id | --ramdisk ramdisk_id | --source-dest-check Boolean | --sriov sriov | --user-data user_data }
+https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ApiReference-cmd-ModifyInstanceAttribute.html
+aws ec2 modify-instance-attribute --instance-id i-5203422c --groups "group id" "group id" "group id"
+https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-instance-attribute.html
+
